@@ -1,5 +1,24 @@
 {
 	"scripts": {
-		"postinstall": "psql $DATABASE_URL -f schema.sql"
+		"postinstall": "psql $DATABASE_URL -f database/schema.sql && psql $DATABASE_URL -f database/seed.sql"
+	},
+	"name": "sql-database",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/IITU-Plaki-Plaki/sql-database.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/IITU-Plaki-Plaki/sql-database/issues"
+	},
+	"homepage": "https://github.com/IITU-Plaki-Plaki/sql-database#readme",
+	"description": "",
+	"dependencies": {
+		"dotenv": "^16.4.7",
+		"pg": "^8.13.3"
 	}
 }
