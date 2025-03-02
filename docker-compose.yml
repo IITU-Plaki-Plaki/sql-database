@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: crm-database-container
+    restart: always
+    ports:
+      - '5432:5432'
+    # env:
+    #   POSTGRES_USER: ${{ secrets.DB_USER }}
+    #   POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    #   POSTGRES_DB: crm
+    env_file:
+      - .env
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
